@@ -1,13 +1,7 @@
-import matplotlib.pyplot as plt
+import plotly.express as px
 
-def show_histogram(data, column, title = "histograma"):
-    try:
-        plt.hist(data[column], bins=10, color="blue", alpha=0.7)
-        plt.title(title)
-        plt.xlabel(column)
-        plt.ylabel("Frecuencia")
-        plt.show()
-    
-    except Exception as e:
-        print(f"Error al generar el grafico: {e}")
-        raise
+def generate_graphs(data):
+    # Gráfico de goles por equipo
+    fig = px.bar(data, x="Equipo", y="Goles", title="Goles por Equipo")
+    graph_html = fig.to_html(full_html=False)
+    return graph_html

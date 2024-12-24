@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Resultados del Análisis</h1>
+<h2>Estadísticas</h2>
+<ul>
+    {% for stat, value in stats.items() %}
+    <li>{{ stat }}: {{ value }}</li>
+    {% endfor %}
+</ul>
+<h2>Probabilidades</h2>
+<ul>
+    {% for prob, value in probabilities.items() %}
+    <li>{{ prob }}: {{ value }}</li>
+    {% endfor %}
+</ul>
+<h2>Gráficos</h2>
+<div>
+    {{ graphs|safe }}
+</div>
+{% endblock %}

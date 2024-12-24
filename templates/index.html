@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadísticas de Fútbol</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Análisis de Fútbol</h1>
+        <div class="row mt-4">
+            <!-- Selección de Liga -->
+            <div class="col-md-6">
+                <h3>Selecciona una Liga</h3>
+                <select id="leagueDropdown" class="form-select">
+                    <option value="">-- Selecciona una liga --</option>
+                    {% for league in leagues %}
+                        <option value="{{ league }}">{{ league }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <!-- Selección de Partido -->
+            <div class="col-md-6">
+                <h3>Selecciona un Partido</h3>
+                <select id="matchDropdown" class="form-select" disabled>
+                    <option value="">-- Selecciona un partido --</option>
+                </select>
+            </div>
+        </div>
+        <!-- Detalles del Partido -->
+        <div id="results" class="mt-5">
+            <h2>Detalles del Partido Seleccionado</h2>
+            <p id="matchDetails">No se ha seleccionado ningún partido.</p>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
